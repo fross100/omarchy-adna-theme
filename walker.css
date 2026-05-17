@@ -1,0 +1,84 @@
+@define-color selected-text #00E5FF;
+@define-color text #00E5FF;
+@define-color base #1A1620;
+@define-color border #00BCD4;
+@define-color foreground #00E5FF;
+@define-color background #1A1620;
+@define-color selection_bg #00BCD4;
+
+window .box-wrapper {
+  background: alpha(@base, 0.5);
+  border: 0px;
+  border-radius: 12px;
+  padding: 0px;
+  margin: 25px;
+  backdrop-filter: blur(1px);
+  line-height: 50%;
+  color: @text;
+}
+
+window .search-container {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  padding: 6px 12px;
+  margin: 0px;
+  background: alpha(@selection_bg, 0.8);
+  backdrop-filter: blur(1px);
+  line-height: 3em;
+  color: @base;
+  animation: input-alive 3.5s ease-in-out infinite;
+}
+
+window .search-container text,
+window .input {
+  background: transparent;
+  padding: 0px 0px;
+  color: @foreground;
+  caret-color: @text;
+  margin: 0px;
+}
+
+window .search-container .placeholder,
+window .search-container entry placeholder {
+  color: @foreground;
+  opacity: 1;
+  margin: 0px;
+}
+
+window .preview {
+  border: 0px solid alpha(@border, 0);
+  border-radius: 7px;
+  background: @transparent;
+  color: @text;
+  padding: 10px 10px 10px;
+  margin: 10px 0px 10px;
+  backdrop-filter: blur(8px);
+  line-height: 1em;
+}
+
+/* --- Selection States --- */
+child:selected {
+  background-color: alpha(@selection_bg, 0.5);
+}
+
+child:selected .item-box {
+  color: @foreground;
+  padding-top: 0px;
+  margin-left: 0px;
+  margin: 0px 0px 0px 0px;
+}
+
+.elephant-hint,
+.keybind-bind,
+.keybind-label {
+  border-radius: 8px;
+  background-color: #b2fff3;
+  color: @base;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 2px 4px;
+  margin: 0 0 0 0;
+  line-height: 1em;
+}

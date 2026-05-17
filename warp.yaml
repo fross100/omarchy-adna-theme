@@ -1,0 +1,26 @@
+name: Adna Dark
+accent: "#00BCD4"
+cursor: "#00E5FF"
+background: "#1A1620"
+foreground: "#FF69B4"
+details: darker
+
+terminal_colors:
+  normal:
+    black: "#008B8B"
+    red: "#FF1493"
+    green: "#00E5FF"
+    yellow: "#00E5FF"
+    blue: "#00E5FF"
+    magenta: "#00BCD4"
+    cyan: "#00E5FF"
+    white: "#FFB6C1"
+  bright:
+    black: "#008B8B"
+    red: "#FF69B4"
+    green: "#00E5FF"
+    yellow: "#00E5FF"
+    blue: "#00E5FF"
+    magenta: "#00BCD4"
+    cyan: "#00E5FF"
+    white: "#FFC0CB"

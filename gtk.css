@@ -1,0 +1,389 @@
+/*
+ * Adna GTK/Libadwaita Theme
+ * Based on Adna color scheme (https://github.com/fross100/omarchy-adna-theme)
+ * Features:
+ * - Solid non-transparent title bar
+ * - Light readable text for all UI elements (sidebar, file content, etc.)
+ * - Rounded top (headerbar) buttons with 8px corners
+ */
+
+/* =============================================
+ * Base Color Definitions (matches adna/colors.toml)
+ * ============================================= */
+@define-color background #1A1620;
+@define-color pink_accent #FF69B4; /* Original foreground, reserved for accents only */
+@define-color light_text #F0F0F0; /* Readable light text for all UI text */
+@define-color selection_bg #003333;
+@define-color selection_fg #FFB6C1;
+
+/* ANSI Color Palette (matches colors.toml) */
+@define-color black #008B8B; /* color0 */
+@define-color red #00BCD4; /* color1 (accent color) */
+@define-color green #00E5FF; /* color2 */
+@define-color yellow #00E5FF; /* color3 */
+@define-color blue #00E5FF; /* color4 */
+@define-color magenta #00BCD4; /* color5 */
+@define-color cyan #00E5FF; /* color6 */
+@define-color white #FFB6C1; /* color7 */
+@define-color bright_black #008B8B; /* color8 */
+@define-color bright_red #00E5FF; /* color9 */
+@define-color bright_green #00E5FF; /* color10 */
+@define-color bright_yellow #00E5FF; /* color11 */
+@define-color bright_blue #00E5FF; /* color12 */
+@define-color bright_magenta #00BCD4; /* color13 */
+@define-color bright_cyan #00E5FF; /* color14 */
+@define-color bright_white #FFC0CB; /* color15 */
+
+/* =============================================
+ * Accent Colors
+ * ============================================= */
+@define-color accent_bg_color @blue;
+@define-color accent_fg_color @background;
+@define-color accent_color @red; /* #00BCD4 */
+
+/* =============================================
+ * Core UI Color Assignments
+ * ============================================= */
+/* Window */
+@define-color window_bg_color @background;
+@define-color window_fg_color @light_text;
+
+/* View/Content */
+@define-color view_bg_color @background;
+@define-color view_fg_color @light_text;
+
+/* Sidebar */
+@define-color sidebar_bg_color @background;
+@define-color sidebar_fg_color @light_text;
+@define-color sidebar_backdrop_color @background;
+@define-color sidebar_shade_color @background;
+
+/* Title Bar (Headerbar) - SOLID, NO TRANSPARENCY */
+@define-color headerbar_bg_color #252130; /* Slightly lighter than background, fully opaque */
+@define-color headerbar_fg_color @light_text;
+@define-color headerbar_backdrop_color @background;
+@define-color headerbar_shade_color @background;
+
+/* Cards/Popovers */
+@define-color card_bg_color #2A2630;
+@define-color card_fg_color @light_text;
+@define-color popover_bg_color @background;
+@define-color popover_fg_color @light_text;
+
+/* Status Colors */
+@define-color destructive_bg_color @red;
+@define-color destructive_fg_color @background;
+@define-color success_bg_color @green;
+@define-color success_fg_color @background;
+@define-color warning_bg_color @yellow;
+@define-color warning_fg_color @background;
+@define-color error_bg_color @red;
+@define-color error_fg_color @background;
+
+/* Dialogs */
+@define-color dialog_bg_color @background;
+@define-color dialog_fg_color @light_text;
+
+/* Borders */
+@define-color borders alpha(@light_text, 0.1);
+
+/* Legacy GTK Theme Colors (fixed pink text) */
+@define-color theme_fg_color @light_text;
+@define-color theme_text_color @light_text;
+@define-color theme_bg_color @background;
+@define-color theme_base_color @background;
+@define-color theme_selected_bg_color @selection_bg;
+@define-color theme_selected_fg_color @selection_fg;
+@define-color insensitive_bg_color @background;
+@define-color insensitive_fg_color @bright_black;
+@define-color insensitive_base_color @background;
+@define-color theme_unfocused_fg_color @light_text;
+@define-color theme_unfocused_text_color @light_text;
+@define-color theme_unfocused_bg_color @background;
+@define-color theme_unfocused_base_color @background;
+@define-color theme_unfocused_selected_bg_color @selection_bg;
+@define-color theme_unfocused_selected_fg_color @selection_fg;
+@define-color unfocused_insensitive_color @bright_black;
+@define-color unfocused_borders alpha(@light_text, 0.1);
+@define-color warning_color @yellow;
+@define-color error_color @red;
+@define-color success_color @green;
+@define-color destructive_color @red;
+
+/* Text Views */
+@define-color text_color @light_text;
+@define-color text_view_fg @light_text;
+@define-color window_text_color @light_text;
+@define-color content_view_bg @background;
+@define-color text_view_bg @background;
+
+/* =============================================
+ * Global Styles
+ * ============================================= */
+:root {
+  color-scheme: dark;
+}
+
+/* Default: no rounded corners for all elements */
+* {
+  border-radius: 0;
+}
+
+/* =============================================
+ * General UI Elements
+ * ============================================= */
+/* Message Dialog */
+messagedialog {
+  background-color: @dialog_bg_color;
+}
+
+messagedialog label {
+  color: @dialog_fg_color;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+messagedialog .secondary-text {
+  font-size: 10pt;
+  font-style: italic;
+}
+
+messagedialog button {
+  background-color: @background;
+  color: @light_text;
+  border: 1px solid @bright_black;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+messagedialog button:hover {
+  background-color: @accent_color;
+  color: @background;
+}
+
+/* Banner */
+banner revealer widget {
+  background: @bright_black;
+  padding: 5px;
+  color: @light_text;
+}
+
+/* Alert Dialog */
+alertdialog.background {
+  background-color: @dialog_bg_color;
+  color: @dialog_fg_color;
+}
+
+alertdialog .titlebar {
+  background-color: @headerbar_bg_color;
+  color: @headerbar_fg_color;
+}
+
+alertdialog box {
+  background-color: @dialog_bg_color;
+}
+
+alertdialog label {
+  color: @dialog_fg_color;
+}
+
+/* Toast Notifications */
+toast {
+  background-color: @background;
+  color: @light_text;
+}
+
+toast button.circular.flat.image-button:hover {
+  color: @background;
+  background-color: @red;
+}
+
+/* =============================================
+ * File Picker (FileChooser) Specific Styles
+ * ============================================= */
+filechooser {
+  background-color: @background;
+  color: @light_text;
+}
+
+filechooser .dialog-action-box {
+  border-top: 1px solid @bright_black;
+  background-color: @background;
+}
+
+filechooser .dialog-action-box:backdrop {
+  border-top-color: @black;
+}
+
+filechooser #pathbarbox {
+  border-bottom: 1px solid @bright_black;
+  color: @light_text;
+}
+
+filechooserbutton:drop(active) {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+/* File Picker Sidebar */
+filechooser .places-sidebar,
+filechooser sidebar {
+  background-color: @background;
+  color: @light_text;
+}
+
+/* File Picker Content List */
+filechooser columnview,
+filechooser columnview row,
+filechooser columnview cell,
+filechooser listview,
+filechooser listview row,
+filechooser treeview,
+filechooser treeview row {
+  color: @light_text;
+  background-color: @background;
+}
+
+filechooser entry,
+filechooser entry.search {
+  color: @light_text;
+  background-color: @background;
+  caret-color: @light_text;
+}
+
+/* =============================================
+ * Top Buttons (Headerbar/Titlebar) - Rounded 8px Corners
+ * ============================================= */
+.titlebar button,
+headerbar button,
+.window-frame button {
+  border-radius: 8px; /* 8px rounded corners as requested */
+  padding: 6px 12px;
+}
+
+.titlebar button:hover,
+headerbar button:hover {
+  background-color: @accent_color;
+  color: @background;
+}
+
+/* =============================================
+ * Nautilus/File Manager Styles
+ * ============================================= */
+window.nautilus-window,
+.nautilus-window,
+NautilusWindow,
+#NautilusWindow {
+  color: @light_text;
+  background-color: @background;
+  color-scheme: dark;
+}
+
+/* Sidebar */
+.places-sidebar,
+placestext,
+.frame,
+scrolledwindow,
+viewport,
+.clamped-width {
+  color: @light_text;
+  background-color: @background;
+}
+
+/* File List (GTK4 ColumnView/ListView) */
+columnview,
+columnview row,
+columnview row:selected,
+columnview cell,
+listview,
+listview row,
+listview row:selected {
+  color: @light_text;
+  background-color: @background;
+}
+
+/* Treeview (GTK3) */
+treeview,
+treeview row,
+treeview row:selected {
+  color: @light_text;
+  background-color: @background;
+}
+
+/* Path Bar and Search */
+.path-bar,
+.path-bar-box,
+.nautilus-path-bar,
+entry.search,
+entry,
+entry.search image,
+entry image {
+  color: @light_text;
+  background-color: @background;
+  caret-color: @light_text;
+}
+
+/* Notebook Tabs */
+notebook tab,
+notebook tab:checked,
+notebook header {
+  color: @light_text;
+  background-color: @background;
+}
+
+/* Floating Bars/Overlays */
+.floating-bar,
+.overlay-indicator,
+.search-bar {
+  color: @light_text;
+  background-color: @background;
+}
+
+/* =============================================
+ * Title Bar (Headerbar) - Solid Non-Transparent Background
+ * ============================================= */
+.window-frame,
+.titlebar,
+headerbar {
+  color: @headerbar_fg_color;
+  background-color: @headerbar_bg_color; /* Solid, no transparency */
+}
+
+/* =============================================
+ * Text Entry/View Styles
+ * ============================================= */
+textview,
+textview text,
+text {
+  color: @light_text;
+  background-color: @background;
+}
+
+/* =============================================
+ * Selected Item Styles
+ * ============================================= */
+*:selected,
+*:selected:focus {
+  background-color: @theme_selected_bg_color;
+  color: @theme_selected_fg_color;
+}
+
+/* =============================================
+ * Label Styles
+ * ============================================= */
+/* Explicitly target labels in Nautilus and File Picker */
+window.nautilus-window label,
+.nautilus-window label,
+columnview cell label,
+listview row label,
+treeview label,
+filechooser label {
+  color: @light_text;
+}
+
+/* Dim/Secondary Text */
+window.nautilus-window .dim-label,
+.nautilus-window .dim-label,
+filechooser .dim-label {
+  color: alpha(@light_text, 0.7);
+}
